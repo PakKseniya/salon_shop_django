@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+{% load static %}
+<head>
+    <meta charset="utf-8" />
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="{% static 'salon_shop/images/icons/favicon.ico' %}">
+    <script src="{% static 'salon_shop/js/webfont.js' %}" async=""></script>
+    <script type="text/javascript">
+		WebFontConfig = {
+			google: { families: [ 'Open+Sans:300,400,600,700,800','Poppins:300,400,500,600,700,800' ] }
+		};
+		(function(d) {
+			var wf = d.createElement('script'), s = d.scripts[0];
+			wf.src = 'static/salon_shop/js/webfont.js';
+			wf.async = true;
+			s.parentNode.insertBefore(wf, s);
+		})(document);
+	</script>
+    <!-- Plugins CSS File -->
+    <link rel="stylesheet" href="{% static 'salon_shop/css/bootstrap.min.css'%}">
+    <!-- Main CSS File -->
+    <link rel="stylesheet" href="{% static 'salon_shop/css/style.min.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'salon_shop/css/animate.min.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'salon_shop/vendor/fontawesome-free/css/all.min.css'%}">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800%7CPoppins:300,400,500,600,700,800" media="all">
+    <title>Интернет-магазин</title>
+</head>
+<body>
+<header class="header mb-0">
+    <div class="header-middle">
+        <div class="container">
+            <div class="header-left">
+                <button class="mobile-menu-toggler mr-2" type="button">
+                    <i class="icon-menu"></i>
+                </button>
+                <a href="/index" class="logo">
+                    <img src="{% static 'salon_shop/images/logo.png' %}" alt="Logo" width="300" height="150">
+                </a>
+            </div><!-- End .header-left -->
+
+
+            <div class="header-center flex-1 ml-0 justify-content-end justify-content-lg-start">
+                <div class="header-search header-search-inline header-search-category w-lg-max pr-2 pr-lg-0">
+                    <a href="#" class="search-toggle header-icon d-none d-sm-inline-block d-lg-none mr-0" role="button"><i class="icon-search-3"></i></a>
+                    <form action="#" method="get">
+                        <div class="header-search-wrapper">
+                            <input type="search" class="form-control" name="q" id="q" placeholder="Search..." required="">
+                            <div class="select-custom">
+                                <select id="cat" name="cat">
+                                    <option value="">Все категории</option>
+                                    <option value="4">Волосы</option>
+                                    <option value="5">Лицо</option>
+                                    <option value="6">Тело</option>
+                                    <option value="7">Ногти</option>
+                                    <option value="8">Расходные материалы</option>
+
+                                </select>
+
+                            </div><!-- End .select-custom -->
+                            <button class="btn icon-search-3" type="submit"></button>
+                        </div><!-- End .header-search-wrapper -->
+                    </form>
+                </div><!-- End .header-search -->
+            </div>
+            <div class="header-right">
+                <div class="header-contact d-none d-lg-flex ml-5">
+                    <i class="icon-phone-2"></i>
+                    <h6>Позвони сейчас<a href="tel:#" class="font1 text-secondary">+89140000000</a></h6>
+                </div>
+
+                <a href="login" class="header-icon login-link"><i class="icon-user-2"></i></a>
+
+                <a href="#" class="header-icon"><i class="icon-wishlist-2"></i></a>
+
+                <div class="dropdown cart-dropdown">
+                    <a href="#" class="dropdown-toggle dropdown-arrow" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
+                        <i class="icon-shopping-cart"></i>
+
+                    </a>
+
+                    <div class="dropdown-menu">
+                        <div class="dropdownmenu-wrapper">
+                            <div class="dropdown-cart-header">
+                                <span> Список </span>
+
+                                <a href="cart.html" class="float-right">Корзина</a>
+                            </div><!-- End .dropdown-cart-header -->
+                        </div>
+                    </div><!-- End .dropdown-cart-total -->
+                </div><!-- End .dropdownmenu-wrapper -->
+            </div><!-- End .dropdown-menu -->
+        </div><!-- End .dropdown -->
+    </div><!-- End .header-right -->
+
+    <div class="sticky-wrapper">
+        <div class="header-bottom mb-lg-2 sticky-header" data-sticky-options="{
+				'move': [
+					{
+						'item': '.header-icon:not(.search-toggle)',
+						'position': 'end',
+						'clone': false
+					},
+					{
+						'item': '.cart-dropdown',
+						'position': 'end',
+						'clone': false
+					}
+				],
+				'moveTo': '.container',
+				'changes': [
+					{
+						'item': '.logo-white',
+						'removeClass': 'd-none'
+					},
+					{
+						'item': '.header-icon:not(.search-toggle)',
+                        'removeClass': 'pb-md-1',
+                        'addClass': 'text-white'
+					},
+					{
+						'item': '.cart-dropdown',
+                        'addClass': 'text-white'
+					}
+				]
+			}" style="margin-right: 17px;">
+            <div class="container">
+                <div class="logo logo-transition logo-white w-100 d-none">
+                    <a href="/index">
+                        <img src="{% static 'salon_shop/images/logo.png' %}" alt="Logo" width="110" height="46">
+                    </a>
+                </div>
+                <div class="bg-dark w-100">
+                    <nav class="main-nav">
+                        <ul class="menu d-flex justify-content-center sf-js-enabled sf-arrows" style="touch-action: pan-y;">
+                            <li class="active">
+                                <a href="/index">Главная</a>
+                            </li>
+                            <li class="news">
+                                <a href="/new_in">Новости</a>
+                            </li>
+                            <li>
+                                <a href="category.html" class="sf-with-ul">Каталог</a>
+                                <div class="megamenu megamenu-fixed-width megamenu-3cols" style="display: none; left: -15px;">
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                            <a href="/product" class="nolink">Категории</a>
+                                            <ul class="submenu">
+                                                <li><a href="/category/volosy/">Волосы</a></li>
+                                                <li><a href="/category/lico/">Лицо</a></li>
+                                                <li><a href="/category/nogti/">Ногти</a></li>
+                                                <li><a href="/category/rashodnye-materialy/">Расходные материалы</a></li>
+                                                <li><a href="/category/telo/">Тело</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div><!-- End .megamenu -->
+                            <li class="Product_all">
+                                <a href="/product">Продукция</a>
+                            </li>
+
+                            <li><a class="d-none d-xl-inline-block" href="/about">О магазине</a></li>
+                            <li><a class="salon_kr" href="/salon_kr"> Салон красоты </a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- End .header -->
+{% block content%}
+{% endblock content%}
+<footer>
+    <div class="container">
+        <div class="widget">
+            <br/>
+            <h3 class="widget-title">Помощь</h3>
+            <hr width="100%" size="1" color="grey"/>
+                 <ul class="contact info">
+                    <div>
+                        <li><span class="contact-info-label">Адрес магазина:</span>г. Хабаровск, ул.Ленина 8</li>
+                        <li><span class="contact-info-label">Режим работы:</span><a>Ежедневно с 9:00 до 23:00</a></li>
+                        <li><span class="contact-info-label">Email:</span> <a href="mailto:mail@example.com">mail@example.com</a><li>
+                        <li><span class="contact-info-label">Телефон:</span>Звонок бесплатный <a href="тел:">+7(914)000-00-00</a></li>
+                    </div>
+                </ul>
+        </div><!-- End .widget -->
+    </div>
+            <div class="container">
+                <div class="social-icons">
+                    <a href=" https://t.me/salon_kras_bot" class="social-icon social-telegram icon-telegram" target="_blank" title="Telegram">
+                        <img src="{% static 'salon_shop/images/telegram.png' %}" alt="telegram" width="110" height="46"><a>Telegram-bot</a>
+                    </a>
+
+                </div>
+            </div><!-- End .widget -->
+
+
+        <div class="container">
+            <div class="footer-middle">
+                <div class="row">
+                    <div class="col-lg-5 mb-4 mb-lg-0">
+                        <div class="widget">
+                            <h4 class="widget-title">Покупателям</h4>
+                            <ul class="links link-parts row mb-0">
+                                <div class="link-part col-md-6 col-sm-12">
+                                    <li><a href="about.html">О нас</a></li>
+                                    <li><a href="contact.html">Контакты</a></li>
+                                    <li><a href="#">Личный кабинет</a></li>
+                                </div>
+                                <div class="link-part col-md-6 col-sm-12">
+                                    <li><a href="#">История заказов</a></li>
+                                </div>
+                            </ul>
+                        </div>
+                    </div><!-- End .col-lg-3 -->
+                </div>
+            </div><!-- End .col-lg-3 -->
+        </div><!-- End .row -->
+
+        <div class="container">
+                <div class="footer-bottom d-flex justify-content-between align-items-center flex-wrap">
+                    <p class="footer-copyright py-3 pr-4 mb-0">©2022 САЛОН КРАСОТЫ - ИНТЕРНЕТ-МАГАЗИН ПРОФЕССИОНАЛЬНЫХ КОСМЕТИЧЕСКИХ СРЕСТВ.
+                    ВСЕ ПРАВА ЗАЩИЩЕНЫ</p>
+                    <img src='{% static "salon_shop/images/payments.png" %}' alt="payment" width="240" height="52" class="footer-payments py-3">
+                </div><!-- End .footer-bottom -->
+        </div>
+</footer>
+
+
+        <a id="scroll-top" href="#top" title="Top" role="button" class="fixed"><i class="fas fa-chevron-up"></i></a>
+        <!-- Plugins JS File -->
+        <script src="{% static 'salon_shop/js/jquery.min.js' %}"></script>
+        <script src="{% static 'salon_shop/js/bootstrap.bundle.min.js' %}"></script>
+        <script src="{% static 'salon_shop/js/plugins.min.js' %}"></script>
+        <script src="{% static 'salon_shop/js/jquery.appear.min.js' %}"></script>
+        <!-- Main JS File -->
+        <script src="{% static 'salon_shop/js/main.min.js' %}"></script>
+
+</body>
+</html>
+
+
+
