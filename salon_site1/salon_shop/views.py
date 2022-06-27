@@ -10,7 +10,7 @@ def product_list(request, category_slug=None):
     if category_slug:
         category = get_object_or_404(Category, slug=category_slug)
         products = products.filter(category=category)
-    return render(request, 'salon_shop/list.html',
+    return render(request, 'salon_shop/product_list.html',
                   {
                       'category': category,
                       'categories': categories,
@@ -18,9 +18,18 @@ def product_list(request, category_slug=None):
                   })
 
 
-def product_detail(request, id, slug):
-    product = get_object_or_404(Product, id=id, slug=slug, available=True)
-    return render(request, 'salon_shop/detail.html', {'product': product})
+def product_detail(request, slug):
+    product = get_object_or_404(Product, slug=slug, available=True)
+    return render(request, 'salon_shop/product_detail.html', {'product': product})
+
+
+def pr(request):
+    products = Product.objects.all()
+    context = {
+        'products': products,
+        'title':'Продукция'
+    }
+    return render(request, 'salon_shop/product_list.html', context=context)
 
 
 def about(request):
@@ -42,24 +51,23 @@ def new_in(request):
         'title': "Новости, скидки,акции"
 
     }
-    return render(request, 'salon_shop/news.html', context=context )
+    return render(request, 'salon_shop/news.html', context=context)
 
 
-def pr(request):
-    products = Product.objects.all()
-    context = {
-        'products': products,
-        'title':'Продукция'
-    }
-    return render(request, 'salon_shop/product.html', context=context)
+def register(request):
+    return render(request, 'salon_shop/register.html', {'title':'Регистрация'})
 
 
 def login(request):
-    return render(request, 'salon_shop/ajax/login_popup.html', {'title':'Войти'})
+    return render(request, 'salon_shop/login.html', {'title':'Вход в личный кабинет'})
 
 
 def show_post(request, post_id):
     return HttpResponse(f'Отображение статьи= {post_id}')
+
+
+def salon_kr(reqiust):
+    return render(reqiust, 'salon_shop/salon_kr.html', {'title':" О салоне красоты"})
 
 
 def pageNotFound(request, exception):

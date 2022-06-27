@@ -3,52 +3,42 @@
 {% load contact_tags %}
 {% block content %}
 <main class="main">
-			<nav aria-label="breadcrumb" class="breadcrumb-nav">
-				<div class="container">
-					<ol class="breadcrumb">
-						<li class="breadcrumb-item"><a href="index"><i class="icon-home"></i></a></li>
-						<li class="breadcrumb-item active" aria-current="page">Новости</li>
-					</ol>
+	<div class="container">
+		<nav aria-label="breadcrumb" class="breadcrumb-nav">
+			<ol class="breadcrumb">
+				<li class="breadcrumb-item"><a href="/index"><i class="icon-home"></i></a></li>
+				<li class="breadcrumb-item active" aria-current="page">Новости</li>
+			</ol>
+		</nav>
+		{% for item in news %}
+
+		<div class="post-body">
+			<h2 class="post-title">
+				<font color="#e9846b">{{item.title}}</font>
+			</h2>
+			<div class="post-content">
+				<div class="row">
+					<div class="col-sm-4">
+						<div class="media">
+							<img class="align-self-center mr-3" src="{{item.photo.url}}" width="230" height="230">
+						</div>
+					</div>
+					<div class="col-sm-7">
+						<p><h3 align="justify">{{ item.description }}</h3></p>
+					</div>
 				</div>
-			</nav>
-						{% for item in news %}
-						<div class="post-body">
-								<h2 class="post-title">
-									<a href="new_read_more.html">{{item.title}}</a>
-								</h2>
+			</div><!-- End .post-content -->
+			<div class="post-meta">
+				<span><i class="icon-calendar"></i>{{item.created_at}}</span>
+			</div><!-- End .post-meta -->
+		</div>
+		{% endfor %}
 
-								<div class="post-content">
-									<p>{{ item.description }}</p>
-
-									<a href="new_read_more.html" class="read-more">Читать больше <i class="icon-angle-double-right"></i></a>
-								</div><!-- End .post-content -->
-
-								<div class="post-meta">
-									<span><i class="icon-calendar"></i>{{item.created_at}}</span>
-
-
-								</div><!-- End .post-meta -->
+							<div class="newsletter-banner appear-animate">
+                    			<div class="d-flex flex-wrap">
+                        			{% contact_form %}
+                   				</div>
 							</div>
-						{% endfor %}
-
-					<article>
-						<nav class="toolbox toolbox-pagination border-0">
-							<ul class="pagination">
-								<li class="page-item active">
-									<a class="page-link" href="#">1 <span class="sr-only">(current)</span></a>
-								</li>
-								<li class="page-item"><a class="page-link" href="#">2</a></li>
-								<li class="page-item"><a class="page-link" href="#">3</a></li>
-
-							</ul>
-						</nav>
-					</article>
-
-				<div class="newsletter-banner appear-animate">
-                    <div class="d-flex flex-wrap">
-                        {% contact_form %}
-                    </div>
-				</div>
-
+	</div>
 </main>
 {% endblock content %}

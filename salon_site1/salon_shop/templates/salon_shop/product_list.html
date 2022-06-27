@@ -6,49 +6,44 @@
 			<nav aria-label="breadcrumb" class="breadcrumb-nav">
 				<div class="container">
 					<ol class="breadcrumb">
-						<li class="breadcrumb-item"><a href="index"><i class="icon-home"></i></a></li>
+						<li class="breadcrumb-item"><a href="/index/"><i class="icon-home"></i></a></li>
 						<li class="breadcrumb-item active" aria-current="page">Продукция</li>
 					</ol>
 				</div>
 			</nav>
 
-			<div class="container pb-3">
+			<div class="container pb-4">
 				<div class="row">
-					<div class="col-lg-9 main-content">
+					<div class="col-lg-10 main-content">
 
 
 						<div class="row">
 							{% for prod in products %}
-							<div class="col-6 col-sm-4">
+							<div class="col-sm-4">
 								<div class="product-default inner-quickview inner-icon">
 									<figure>
-										<a href="product.html">
-											<img src="{{prod.image.url}}">
+										<a href="{% url 'salon_shop:product_detail' prod.slug %}">
+											<img src="{{prod.image.url}}"  >
 										</a>
 										<div class="btn-icon-group">
 											<button class="btn-icon btn-add-cart" data-toggle="modal" data-target="#addCartModal"><i class="icon-shopping-cart"></i></button>
 										</div>
-										<a href="ajax/product-quick-view.html" class="btn-quickview" title="Quick View">Quick View</a>
+
 									</figure>
 									<div class="product-details">
 										<div class="category-wrap">
 											<div class="category-list">
-												<a href="category.html" class="product-category">{{prod.category}}</a>
+												<a href="product_detail" class="product-category">{{prod.category}}</a>
 											</div>
 											<a href="#" class="btn-icon-wish"><i class="icon-heart"></i></a>
 										</div>
 										<h2 class="product-title">
-											<a href="product.html">{{prod.name}}</a>
+											<a href="{% url 'salon_shop:product_detail' prod.slug %}">{{prod.name}}</a>
 										</h2>
-										<div class="ratings-container">
-											<div class="product-ratings">
-												<span class="ratings" style="width:100%"></span><!-- End .ratings -->
-												<span class="tooltiptext tooltip-top"></span>
-											</div><!-- End .product-ratings -->
-										</div><!-- End .product-container -->
+
 										<div class="price-box">
 
-											<span class="product-price">{{prod.price}}</span>
+											<span class="product-price">{{prod.price}} руб.</span>
 										</div><!-- End .price-box -->
 									</div><!-- End .product-details -->
 								</div>
@@ -59,17 +54,7 @@
 
 
 					<nav class="toolbox toolbox-pagination">
-							<div class="toolbox-item toolbox-show">
-								<label>Show:</label>
 
-								<div class="select-custom">
-									<select name="count" class="form-control">
-										<option value="12">12</option>
-										<option value="24">24</option>
-										<option value="36">36</option>
-									</select>
-								</div><!-- End .select-custom -->
-							</div><!-- End .toolbox-item -->
 
 							<ul class="pagination toolbox-item">
 								<li class="page-item disabled">
