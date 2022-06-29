@@ -1,0 +1,37 @@
+{% extends 'salon_shop/base.html' %}
+{% load static %}
+{% block content %}
+<main class="main">
+			<nav aria-label="breadcrumb" class="breadcrumb-nav">
+				<div class="container">
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item"><a href="index/"><i class="icon-home"></i></a></li>
+						<li class="breadcrumb-item active" aria-current="page">Регистрация</li>
+					</ol>
+				</div>
+			</nav>
+
+			<div class="container mb-5">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="heading">
+							<h2 class="title">Создать личный кабинет</h2>
+						</div><!-- End .heading -->
+                        <form method="post">
+                                {% csrf_token %}
+                                Логин: <input type="text" class="form-control" name="username"><br>
+								Имя пользователя: <input type="text" class="form-control" name="first_name"><br>
+								Фамилия пользователя:<input type="text" class="form-control" name="last_name"><br>
+                                Email: <input type="email" class="form-control" name="email"><br>
+                                Пароль: <input type="password" class="form-control" name="password"><br>
+                                Пароль еще раз: <input type="password" class="form-control" name="password2"><br>
+                                <div class="form-footer">
+								        <input type="submit" class="btn btn-primary">
+                                </div>
+                        </form>
+                    </div><!-- End .col-md-6 -->
+				</div><!-- End .row -->
+			</div><!-- End .container -->
+</main>
+
+{% endblock content%}

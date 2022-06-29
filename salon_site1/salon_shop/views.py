@@ -54,12 +54,12 @@ def new_in(request):
     return render(request, 'salon_shop/news.html', context=context)
 
 
-def register(request):
-    return render(request, 'salon_shop/register.html', {'title':'Регистрация'})
-
-
-def login(request):
-    return render(request, 'salon_shop/login.html', {'title':'Вход в личный кабинет'})
+# def register(request):
+#     return render(request, 'salon_shop/register.html', {'title':'Регистрация'})
+#
+#
+# def login(request):
+#     return render(request, 'salon_shop/login.html', {'title':'Вход в личный кабинет'})
 
 
 def show_post(request, post_id):

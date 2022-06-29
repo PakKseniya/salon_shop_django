@@ -1,0 +1,22 @@
+{% extends 'salon_shop/base.html' %}
+{% load static %}
+{% block content %}
+<main class="main">
+			<nav aria-label="breadcrumb" class="breadcrumb-nav">
+				<div class="container">
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item"><a href="index/"><i class="icon-home"></i></a></li>
+						<li class="breadcrumb-item active" aria-current="page">Профиль</li>
+					</ol>
+				</div>
+			</nav>
+
+			<div class="container mb-5">
+				<div class="row">
+                  <h1>Мой профиль</h1>
+                  Имя пользователя: {{ user.username }} <br>
+                  Email: {{ user.email }}
+				</div>
+			</div>
+</main>
+{% endblock content%}

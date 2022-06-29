@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-from .views import about, base, index, new_in, show_post, pr, login, register, salon_kr
+from .views import about, base, index, new_in, show_post, pr, salon_kr
 
 app_name = 'salon_shop'
 
@@ -9,8 +9,6 @@ urlpatterns = [
     path('about/', about, name='about'),
     path('index/', index, name='index'),
     path('new_in/', new_in, name='news'),
-    path('login/', login, name="login"),
-    path('register/', register, name="register"),
     path('product/', pr),
     path('post/<int:post_id>', show_post, name='post'),
     path('product_list/', views.product_list, name='product_list'),

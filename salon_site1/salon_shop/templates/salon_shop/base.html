@@ -69,16 +69,19 @@
                     <h6>Позвони сейчас<a href="tel:#" class="font1 text-secondary">+89140000000</a></h6>
                 </div>
                 <div class="logo">
-                    <a href="/login/" class="header-icon log"><i class="icon-user" ></i></a>
-                    <a href="/register/" class="header-icon log"><i class="icon-user" ></i></a>
-                </div>
+                    <a href="{% url 'user:login' %} "><i class="icon-user" ></i></a>
 
-                <a href="#" class="header-icon"><i class="icon-wishlist-2"></i></a>
+                </div>
+                <div class="regist">
+                    <a href="{% url 'user:register' %} "><i class="icon-user-2" ></i></a>
+                </div>
+                <div>
+                    <a href="#" class="header-icon"><i class="icon-wishlist-2"></i></a>
+                </div>
 
                 <div class="dropdown cart-dropdown">
                     <a href="#" class="dropdown-toggle dropdown-arrow" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
                         <i class="icon-shopping-cart"></i>
-
                     </a>
 
                     <div class="dropdown-menu">

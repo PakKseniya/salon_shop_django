@@ -33,6 +33,7 @@ ALLOWED_HOSTS = [ ]
 INSTALLED_APPS = [
     'salon_shop.apps.SalonShopConfig',
     'slider.apps.SliderConfig',
+    'user.apps.UserConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -40,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'contact.apps.ContactConfig',
-    'sorl.thumbnail',
+
 ]
 
 MIDDLEWARE = [
