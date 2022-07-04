@@ -24,14 +24,11 @@
 										<a href="{% url 'salon_shop:product_detail' prod.slug%}">
 											<img src="{{prod.image.url}}"  >
 										</a>
-										<div class="btn-icon-group">
-											<form action="{% url 'cart:cart_add' prod.id %}" method="post">
-												{{ cart_product_form }}
-												{% csrf_token %}
-												<button class="btn-icon btn-add-cart" data-toggle="modal" data-target="#addCartModal"><i class="icon-shopping-cart"></i></button>
-											</form>
-
-										</div>
+										<form action="{% url 'cart:cart_add' prod.pk %}" method="post">
+											{{ cart_product_form }}
+											{% csrf_token %}
+											<input class="btn btn-dark add-cart icon-shopping-cart" type="submit" value="В корзину">
+										</form>
 
 									</figure>
 									<div class="product-details">
