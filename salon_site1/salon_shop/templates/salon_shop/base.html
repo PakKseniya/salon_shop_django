@@ -48,12 +48,13 @@
                             <input type="search" class="form-control" name="q" id="q" placeholder="Search..." required="">
                             <div class="select-custom">
                                 <select id="cat" name="cat">
-                                    <option value="">Все категории</option>
-                                    <option value="4">Волосы</option>
-                                    <option value="5">Лицо</option>
-                                    <option value="6">Тело</option>
-                                    <option value="7">Ногти</option>
-                                    <option value="8">Расходные материалы</option>
+
+                                        <option value="">Все категории</option>
+                                        <option value="4">Волосы</option>
+                                        <option value="5">Лицо</option>
+                                        <option value="6">Тело</option>
+                                        <option value="7">Ногти</option>
+                                        <option value="8">Расходные материалы</option>
 
                                 </select>
 
@@ -69,34 +70,24 @@
                     <h6>Позвони сейчас<a href="tel:#" class="font1 text-secondary">+89140000000</a></h6>
                 </div>
                 <div class="logo">
-                    <a href="{% url 'user:login' %} "><i class="icon-user" ></i></a>
+                    <a href="{% url 'user:login' %} " class="header-icon "><i class="icon-user"  ></i></a>
 
                 </div>
                 <div class="regist">
-                    <a href="{% url 'user:register' %} "><i class="icon-user-2" ></i></a>
+                    <a href="{% url 'user:register' %}" class="header-icon "><i class="icon-user-2" ></i></a>
                 </div>
                 <div>
-                    <a href="#" class="header-icon"><i class="icon-wishlist-2"></i></a>
+                    <a href="#" class="header-icon" ><i class="icon-wishlist-2"></i></a>
                 </div>
 
                 <div class="dropdown cart-dropdown">
-                    <a href="#" class="dropdown-toggle dropdown-arrow" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
+                    <a href=/cart/ class="cart" >
                         <i class="icon-shopping-cart"></i>
                     </a>
+                </div>
+            </div>
+        </div>
 
-                    <div class="dropdown-menu">
-                        <div class="dropdownmenu-wrapper">
-                            <div class="dropdown-cart-header">
-                                <span> Список </span>
-
-                                <a href="cart.html" class="float-right">Корзина</a>
-                            </div><!-- End .dropdown-cart-header -->
-                        </div>
-                    </div><!-- End .dropdown-cart-total -->
-                </div><!-- End .dropdownmenu-wrapper -->
-            </div><!-- End .dropdown-menu -->
-        </div><!-- End .dropdown -->
-    </div><!-- End .header-right -->
 
     <div class="sticky-wrapper">
         <div class="header-bottom mb-lg-2 sticky-header" data-sticky-options="{
@@ -145,11 +136,11 @@
                                 <a href="/new_in">Новости</a>
                             </li>
                             <li>
-                                <a href="category.html" class="sf-with-ul">Каталог</a>
+                                <a href="/product" class="sf-with-ul">Каталог</a>
                                 <div class="megamenu megamenu-fixed-width megamenu-3cols" style="display: none; left: -15px;">
                                     <div class="row">
                                         <div class="col-lg-4">
-                                            <a href="/product" class="nolink">Категории</a>
+                                            <a class="nolink">Категории</a>
                                             <ul class="submenu">
                                                 <li><a href="/category/volosy/">Волосы</a></li>
                                                 <li><a href="/category/lico/">Лицо</a></li>
@@ -160,9 +151,7 @@
                                         </div>
                                     </div>
                                 </div><!-- End .megamenu -->
-                            <li class="Product_all">
-                                <a href="/product">Продукция</a>
-                            </li>
+
 
                             <li><a class="d-none d-xl-inline-block" href="/about">О магазине</a></li>
                             <li><a class="salon_kr" href="/salon_kr"> Салон красоты </a></li>
@@ -171,6 +160,7 @@
                 </div>
             </div>
         </div>
+    </div>
     </div>
 </header>
 <!-- End .header -->

@@ -11,11 +11,16 @@
 				</div>
 			</nav>
 
-			<div class="container mb-5">
+			<div class="container">
 				<div class="row">
-                  <h1>Мой профиль</h1>
-                  Имя пользователя: {{ user.username }} <br>
-                  Email: {{ user.email }}
+					<div class="col-4"><h2>Мой профиль</h2>
+						<div class="col-4">
+							<h4>Имя пользователя:</h4><h5>{{ user.username }}</h5>
+							<h4>Имя:</h4><h5>{{ user.first_name }}</h5>
+							<h4>Фамилия:</h4><h5>{{ user.last_name }}</h5>
+							<h4>Email:</h4> <h5>{{ user.email }}</h5>
+						</div>
+					</div>
 				</div>
 			</div>
 </main>

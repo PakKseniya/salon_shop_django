@@ -12,6 +12,7 @@ urlpatterns = [
     path('product/', pr),
     path('post/<int:post_id>', show_post, name='post'),
     path('product_list/', views.product_list, name='product_list'),
+    path('category/<category_slug>/', views.product_list, name='product_list_by_category'),
     path('product_detail/<slug:slug>/', views.product_detail, name='product_detail'),
     path('salon_kr/', salon_kr, name='salon_kr'),
 ]

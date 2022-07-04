@@ -45,16 +45,13 @@
 				</div><!-- End .product single-share -->
 				<hr class="divider">
 				<div class="product-action">
-					<div class="product-single-qty">
-						<div class="input-group bootstrap-touchspin bootstrap-touchspin-injected">
-							<button class="btn btn-outline btn-down-icon bootstrap-touchspin-down"></button>
-								<input class="horizontal-quantity form-control" type="text">
-							<button class="btn btn-outline btn-up-icon bootstrap-touchspin-up" ></button>
-
-						</div>
-					</div><!-- End .product-single-qty -->
 					<div class="cart">
-						<a href="cart.html" class="btn btn-dark add-cart icon-shopping-cart" title="Добавить в корзину">В корзину</a>
+						<form action="{% url 'cart:cart_add' product.pk %}" method="post">
+							{{ cart_product_form }}
+							{% csrf_token %}
+							<input class="btn btn-dark add-cart icon-shopping-cart" type="submit" value="В корзину">
+						</form>
+
 					</div>
 				</div><!-- End .product-action -->
 

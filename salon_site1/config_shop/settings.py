@@ -31,17 +31,19 @@ ALLOWED_HOSTS = [ ]
 # Application definition
 
 INSTALLED_APPS = [
-    'salon_shop.apps.SalonShopConfig',
-    'slider.apps.SliderConfig',
-    'user.apps.UserConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'contact.apps.ContactConfig',
 
+    'salon_shop.apps.SalonShopConfig',
+    'slider.apps.SliderConfig',
+    'user.apps.UserConfig',
+    'favorites.apps.FavoritesConfig',
+    'cart.apps.CartConfig',
+    'contact.apps.ContactConfig',
 ]
 
 MIDDLEWARE = [
@@ -53,6 +55,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+CART_SESSION_ID = 'cart'
 
 ROOT_URLCONF = 'config_shop.urls'
 

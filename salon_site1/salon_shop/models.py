@@ -15,14 +15,14 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
-    def save(self, *args, **kwargs):
-        """Для автоматической генерации слагов"""
-        if not self.slug:
-            self.slug = slugify(self.name)
-        super(Category, self).save(*args, **kwargs)
+    # def save(self, *args, **kwargs):
+    #     """Для автоматической генерации слагов"""
+    #     if not self.slug:
+    #         self.slug = slugify(self.name)
+    #     super(Category, self).save(*args, **kwargs)
 
     def get_absolute_url(self):
-        return reverse('salon_shop:product_list', args=[self.slug])
+        return reverse('salon_shop:product_list_by_category', args=[self.slug])
 
 
 class Product(models.Model):
@@ -55,7 +55,7 @@ class Product(models.Model):
         super(Product, self).save(*args, **kwargs)
 
     def get_absolute_url(self):
-        return reverse('salon_shop:product_detail', args=[self.id, self.slug])
+        return reverse('salon_shop:product_detail', args=[self.pk, self.slug])
 
 
 class News(models.Model):

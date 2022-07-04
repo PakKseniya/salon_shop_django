@@ -1,0 +1,112 @@
+{% extends 'salon_shop/base.html' %}
+{% load static %}
+{% block title%} Корзина покупателя {% endblock title%}
+
+{% block content %}
+<main class="main">
+    <nav aria-label="breadcrumb" class="breadcrumb-nav">
+        <div class="container">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/index/"><i class="icon-home"></i></a></li>
+                <li class="breadcrumb-item active" aria-current="page">Корзина</li>
+            </ol>
+        </div>
+    </nav>
+	<div class="container mb-6">
+		<div class="row">
+			<div class="col-lg-8">
+			<div class="cart-table-container">
+				<table class="table table-cart">
+					<thead>
+						<tr>
+							<th class="product-col">Продукт</th>
+							<th class="price-col">Цена</th>
+							<th class="qty-col">Кол-во</th>
+							<th>Цена за 1шт</th>
+							<th>Итог </th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for item in cart %}
+                			{% with product=item.product %}
+					<tr class="product-row">
+						<td class="product-col">
+
+							<figure class="product-image-container">
+								<a href="{% url 'cart:detail' % }">
+									<img src="
+									{% if product.image %}
+                                        {{ product.image.url }}
+                                    {% else %}
+                                        {% static 'images/no_image.png' %}
+                                    {% endif %}">
+                            </a>
+							</figure>
+							<h2 class="product-title">
+								<a>{{ product.name }}</a>
+							</h2>
+						</td>
+						<td>{{ item.price }}</td>
+						<td>{{ item.quantity }}</td>
+
+						<td>{{ item.price }}</td>
+						<td class="num">{{ item.total_price }}</td>
+                    </tr>
+
+					<tr class="product-action-row">
+						<td colspan="4" class="clearfix">
+							<div class="float-left">
+								<a href="#" class="btn-move">Move to Wishlist</a>
+							</div><!-- End .float-left -->
+
+							<div class="float-right">
+
+								<a href="{% url 'cart:cart_remove' product.id %}" >Удалить</a>
+							</div><!-- End .float-right -->
+						</td>
+					</tr>
+							{% endwith %}
+            			{% endfor %}
+					</tbody>
+					<tfoot>
+						<tr>
+							<td colspan="4" class="clearfix">
+								<div class="float-left">
+									<a href="#" class="button light">Continue shopping</a>
+								</div><!-- End .float-left -->
+
+								<div class="float-right">
+									<a href="#" class="btn btn-outline-secondary btn-clear-cart">Clear Shopping Cart</a>
+
+								</div><!-- End .float-right -->
+							</td>
+						</tr>
+					</tfoot>
+				</table>
+			</div><!-- End .cart-table-container -->
+
+
+					</div><!-- End .col-lg-8 -->
+
+			<div class="col-lg-4">
+				<div class="cart-summary">
+					<h3>Итого</h3>
+
+					<table class="table table-totals">
+						<tfoot>
+						<tr>
+							<td>Цена всего заказа</td>
+							<td>{{ cart.get_total_price }}</td>
+						</tr>
+						</tfoot>
+					</table>
+					<div class="checkout-methods">
+						<a href="checkout-shipping.html" class="btn btn-block btn-sm btn-primary">Перейти к оформлению</a>
+
+					</div><!-- End .checkout-methods -->
+				</div><!-- End .cart-summary -->
+			</div><!-- End .col-lg-4 -->
+		</div><!-- End .row -->
+	</div>
+</main>
+{% endblock %}

@@ -12,21 +12,20 @@ class LoginView(TemplateView):
         context = {}
         if request.method == 'POST':
             username = request.POST['username']
-            first_name = request.POST['first_name']
-            last_name = request.POST['last_name']
+
             password = request.POST['password']
-            password2 = request.POST['password2']
-            user = authenticate(request, username=username, first_name=first_name, last_name=last_name,
-                                password=password, password2=password2)
+            user = authenticate(request, username=username, password=password)
             if user is not None:
                 login(request, user)
-                return redirect(reverse("profile"))
+                return redirect(reverse("user:profile"))
             else:
                 context['error'] = "Логин или пароль неправильные"
         return render(request, self.template_name, context)
 
+
 class ProfilePage(TemplateView):
     template_name = "user/profile.html"
+
 
 class RegisterView(TemplateView):
     template_name = "user/register.html"
@@ -41,7 +40,8 @@ class RegisterView(TemplateView):
             password2 = request.POST.get('password2')
 
             if password == password2:
-                User.objects.create_user(username=username, email=email, password=password)
-                return redirect(reverse("login"))
+                User.objects.create_user(username=username, first_name=first_name, last_name=last_name,
+                                         email=email, password=password)
+                return redirect(reverse("user:login"))
         return render(request, self.template_name)
 

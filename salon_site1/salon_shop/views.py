@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Category, Product, News
 from django.http import HttpResponseNotFound, HttpResponse
+from cart.forms import CartAddProductForm
 
 
 def product_list(request, category_slug=None):
@@ -19,15 +20,18 @@ def product_list(request, category_slug=None):
 
 
 def product_detail(request, slug):
-    product = get_object_or_404(Product, slug=slug, available=True)
-    return render(request, 'salon_shop/product_detail.html', {'product': product})
+    product = get_object_or_404(Product,  slug=slug,  available=True)
+    cart_product_form = CartAddProductForm()
+    return render(request, 'salon_shop/product_detail.html', {'product': product,
+                                                              'cart_product_form': cart_product_form})
 
 
 def pr(request):
     products = Product.objects.all()
     context = {
         'products': products,
-        'title':'Продукция'
+        'title':'Продукция',
+        'favorites_list': request.session.get('favorites')
     }
     return render(request, 'salon_shop/product_list.html', context=context)
 
@@ -52,14 +56,6 @@ def new_in(request):
 
     }
     return render(request, 'salon_shop/news.html', context=context)
-
-
-# def register(request):
-#     return render(request, 'salon_shop/register.html', {'title':'Регистрация'})
-#
-#
-# def login(request):
-#     return render(request, 'salon_shop/login.html', {'title':'Вход в личный кабинет'})
 
 
 def show_post(request, post_id):

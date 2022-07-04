@@ -3,7 +3,7 @@
      <h4 class="text-center ls-n-20 m-b-1 text-md-right">ПОДПИСКА НА СПЕЦИАЛЬНЫЕ ПРЕДЛОЖЕНИЯ</h4>
  </div>
  <div class="col-md-5 widget-newsletter px-3">
-     <form action="{% url 'contact' %}" method="post" class="d-flex justify-content-center mb-0">
+     <form action="{% url 'contact:contact' %}" method="post" class="d-flex justify-content-center mb-0">
          {% csrf_token %}
          {{ contact_form}}
          <button class="btn btn-primary">Подписаться</button>
