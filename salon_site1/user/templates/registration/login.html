@@ -23,7 +23,7 @@
 						{% if error %}
                             <div style="color:red;">{{ error }}</div>
                         {% endif %}
-                        <form method="post">
+                        <form action="" method="post">
                         {% csrf_token %}
                             <input type="text" class="form-control" name='username' placeholder="Логин">
                             <input type="password" class="form-control" name="password" placeholder="Пароль">

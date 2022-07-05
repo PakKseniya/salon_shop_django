@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 import os.path
 from pathlib import Path
+from django.urls import reverse_lazy
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -31,7 +32,7 @@ ALLOWED_HOSTS = [ ]
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
+
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -41,6 +42,7 @@ INSTALLED_APPS = [
     'salon_shop.apps.SalonShopConfig',
     'slider.apps.SliderConfig',
     'user.apps.UserConfig',
+    'django.contrib.admin',
     'favorites.apps.FavoritesConfig',
     'cart.apps.CartConfig',
     'orders.apps.OrdersConfig',
@@ -142,6 +144,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 MEDIA_URL = '/media/'
+
+
+LOGIN_REDIRECT_URL = reverse_lazy('/user/profile')
+LOGIN_URL = reverse_lazy('/user/login')
+LOGOUT_REDIRECT_URL = reverse_lazy('/')
 
 
 

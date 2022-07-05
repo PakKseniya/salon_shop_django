@@ -1,12 +1,15 @@
 from django.views.generic import TemplateView
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import redirect, render
 from django.urls import reverse
 from django.contrib.auth.models import User
+from django.shortcuts import HttpResponse
+
+from django.contrib.auth.decorators import login_required
 
 
 class LoginView(TemplateView):
-    template_name = "user/login.html"
+    template_name = "registration/login.html"
 
     def dispatch(self, request, *args, **kwargs):
         context = {}
@@ -23,12 +26,13 @@ class LoginView(TemplateView):
         return render(request, self.template_name, context)
 
 
+
 class ProfilePage(TemplateView):
-    template_name = "user/profile.html"
+    template_name = "registration/profile.html"
 
 
 class RegisterView(TemplateView):
-    template_name = "user/register.html"
+    template_name = "registration/register.html"
 
     def dispatch(self, request, *args, **kwargs):
         if request.method == 'POST':
@@ -43,5 +47,13 @@ class RegisterView(TemplateView):
                 User.objects.create_user(username=username, first_name=first_name, last_name=last_name,
                                          email=email, password=password)
                 return redirect(reverse("user:login"))
+        return render(request, self.template_name)
+
+
+class LogoutView(TemplateView):
+    template_name = "registration/logged_out.html"
+
+    def dispatch(self, request, *args, **kwargs):
+        logout(request)
         return render(request, self.template_name)
 
