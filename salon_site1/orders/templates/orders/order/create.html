@@ -10,7 +10,7 @@
 					</ol>
 				</div>
 			</nav>
-
+		{% if user.is_authenticated %}
 			<div class="container mb-6">
 				<ul class="checkout-progress-bar">
 					<li class="active">
@@ -21,6 +21,7 @@
 				<div class="row">
 					<div class="col-lg-8">
 						<ul class="checkout-steps">
+
 							<li>
 								<h2 class="step-title">Данные о доставке</h2>
 
@@ -75,5 +76,13 @@
                     </div>
                 </div>
 			</div>
+	{% else%}
+		<div class="logo">
+			<a href="{% url 'user:login' %} ">Войти в личный кабинет</a>
+		</div>
+	<div class="regist">
+		<a href="{% url 'user:register' %}" >Регистрация</a>
+	</div>
+	{% endif %}
 </main>
 {% endblock %}
