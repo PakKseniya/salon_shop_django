@@ -1,30 +1,31 @@
 {% load static %}
+<div class="row">
+    <div class="home-slider owl-carousel owl-carousel-lazy owl-theme nav-pos-outside show-nav-hover slide-animate owl-loaded owl-drag loaded">
+        <div class="owl-stage-outer">
+            <div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 1880px;">
+                {% for slide in block_slider %}
+                <div class="owl-item active" style="width: 940px;">
+                    <div class="home-slide banner banner-md-vw-small loaded">
 
-<div class="home-slider owl-carousel owl-carousel-lazy owl-theme nav-pos-outside show-nav-hover slide-animate owl-loaded owl-drag loaded">
-    <div class="owl-stage-outer">
-        <div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 1880px;">
-            {% for slide in block_slider %}
-            <div class="owl-item active" style="width: 940px;">
-                <div class="home-slide banner banner-md-vw-small loaded">
+                            <img class="owl-lazy slide-bg" src="{{ slide.slide_img.url }}"  alt="banner" width="1120" height="445" style="opacity: 1;">
+                    </div>
 
-                        <img class="owl-lazy slide-bg" src="{{ slide.slide_img.url }}"  alt="banner" width="1120" height="445" style="opacity: 1;">
                 </div>
-
+                {% endfor %}
             </div>
-            {% endfor %}
+
         </div>
+        <div class="owl-nav">
+            <button type="button" role="presentation" class="owl-prev disabled">
+                <i class="icon-angle-left"></i>
+            </button>
+            <button type="button" role="presentation" class="owl-next">
+                <i class="icon-angle-right"></i>
+            </button>
+        </div>
+        <div class="owl-dots disabled">
 
-    </div>
-    <div class="owl-nav">
-        <button type="button" role="presentation" class="owl-prev disabled">
-            <i class="icon-angle-left"></i>
-        </button>
-        <button type="button" role="presentation" class="owl-next">
-            <i class="icon-angle-right"></i>
-        </button>
-    </div>
-    <div class="owl-dots disabled">
-
+        </div>
     </div>
 </div>
 

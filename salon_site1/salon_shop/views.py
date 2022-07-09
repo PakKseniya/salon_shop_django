@@ -1,7 +1,8 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Category, Product, News
-from django.http import HttpResponseNotFound, HttpResponse
+from django.http import HttpResponseNotFound, HttpResponse, HttpResponseRedirect
 from cart.forms import CartAddProductForm
+from favorites.views import favorite_list
 
 
 def product_list(request, category_slug=None):
@@ -45,10 +46,11 @@ def about(request):
 
 
 def base(request):
-    return render(request, "salon_shop/index_base.html", {'title':'Интернет-магазин'})
+    return HttpResponseRedirect("/index/")
 
 
 def index(request):
+
     return render(request, "salon_shop/index.html", {'title':'Главная страница'})
 
 
@@ -66,8 +68,8 @@ def show_post(request, post_id):
     return HttpResponse(f'Отображение статьи= {post_id}')
 
 
-def salon_kr(reqiust):
-    return render(reqiust, 'salon_shop/salon_kr.html', {'title':" О салоне красоты"})
+def salon_kr(request):
+    return render(request, 'salon_shop/salon_kr.html', {'title':" О салоне красоты"})
 
 
 def pageNotFound(request, exception):

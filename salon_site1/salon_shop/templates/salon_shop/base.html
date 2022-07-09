@@ -17,6 +17,9 @@
 			s.parentNode.insertBefore(wf, s);
 		})(document);
 	</script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
     <!-- Plugins CSS File -->
     <link rel="stylesheet" href="{% static 'salon_shop/css/bootstrap.min.css'%}">
     <!-- Main CSS File -->
@@ -41,30 +44,7 @@
             </div><!-- End .header-left -->
 
 
-            <div class="header-center flex-1 ml-0 justify-content-end justify-content-lg-start">
-                <div class="header-search header-search-inline header-search-category w-lg-max pr-2 pr-lg-0">
-                    <a href="#" class="search-toggle header-icon d-none d-sm-inline-block d-lg-none mr-0" role="button"><i class="icon-search-3"></i></a>
-                    <form action="#" method="get">
-                        <div class="header-search-wrapper">
-                            <input type="search" class="form-control" name="q" id="q" placeholder="Search..." required="">
-                            <div class="select-custom">
-                                <select id="cat" name="cat">
 
-                                        <option value="">Все категории</option>
-                                        <option value="4">Волосы</option>
-                                        <option value="5">Лицо</option>
-                                        <option value="6">Тело</option>
-                                        <option value="7">Ногти</option>
-                                        <option value="8">Расходные материалы</option>
-
-                                </select>
-
-                            </div><!-- End .select-custom -->
-                            <button class="btn icon-search-3" type="submit"></button>
-                        </div><!-- End .header-search-wrapper -->
-                    </form>
-                </div><!-- End .header-search -->
-            </div>
             <div class="header-right">
                 <div class="header-contact d-none d-lg-flex ml-5">
                     <i class="icon-phone-2"></i>
@@ -72,8 +52,23 @@
                 </div>
 
                 {% if user.is_authenticated %}
+                <div>
+                    <a href="{% url 'user:profile' %}" class="header-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                             class="bi bi-person-lines-fill" viewBox="0 0 16 16">
+
+                            <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zM11
+                            3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 0 0 1h4a.5.5
+                            0 0 0 0-1h-4zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2zm0 3a.5.5 0 0 0 0
+                            1h2a.5.5 0 0 0 0-1h-2z"/>
+                        </svg>
+                    </a>
+                </div>
                 <div class="logout">
                     <a href="{% url 'user:logged_out' %} " class="header-icon "><i class="icon-user"  ></i></a>
+                </div>
+                <div>
+                    <a href="{% url 'favorites:favorite_detail' %}" class="header-icon" ><i class="icon-wishlist-2"></i></a>
                 </div>
                 {%else%}
                 <div class="logo">
@@ -83,9 +78,7 @@
                     <a href="{% url 'user:register' %}" class="header-icon "><i class="icon-user-2" ></i></a>
                 </div>
                 {% endif %}
-                <div>
-                    <a href="#" class="header-icon" ><i class="icon-wishlist-2"></i></a>
-                </div>
+
 
                 <div class="dropdown cart-dropdown">
                     <a href=/cart/ class="cart" >
@@ -209,7 +202,7 @@
                                 <div class="link-part col-md-6 col-sm-12">
                                     <li><a href="/about/">Об интернет-магазине</a></li>
                                     <li><a href="/salon_kr/">О салоне красоты</a></li>
-                                    <li><a href="#">Личный кабинет</a></li>
+                                    <li><a href="{% url 'user:profile' %}"> Личный кабинет</a></li>
                                 </div>
                                 <div class="link-part col-md-6 col-sm-12">
                                     <li><a href="#">История заказов</a></li>

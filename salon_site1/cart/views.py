@@ -1,4 +1,4 @@
-from django.shortcuts import redirect, render, get_object_or_404
+from django.shortcuts import redirect, render, get_object_or_404, HttpResponseRedirect
 from django.views.decorators.http import require_POST
 from salon_shop.models import Product
 from .cart import Cart
@@ -29,6 +29,13 @@ def cart_remove(request, product_id):
 def cart_detail(request):
     cart = Cart(request)
     return render(request, 'cart/detail.html', {'cart':cart})
+
+
+def cart_clear(request):
+    del request.session['cart']
+    request.session.modified = True
+    return HttpResponseRedirect("/cart")
+
 
 
 

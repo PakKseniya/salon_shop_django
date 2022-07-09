@@ -22,21 +22,26 @@
 								<div class="product-default inner-quickview inner-icon">
 									<figure>
 										<a href="{% url 'salon_shop:product_detail' prod.slug%}">
-											<img src="{{prod.image.url}}"  >
+											<img src="{{prod.image.url}}" >
 										</a>
 										<form action="{% url 'cart:cart_add' prod.pk %}" method="post">
 											{{ cart_product_form }}
 											{% csrf_token %}
 											<input class="btn btn-dark add-cart icon-shopping-cart" type="submit" value="В корзину">
 										</form>
-
 									</figure>
 									<div class="product-details">
 										<div class="category-wrap">
 											<div class="category-list">
 												<a href="product_detail" class="product-category">{{prod.category}}</a>
 											</div>
-											<a href="#" class="btn-icon-wish"><i class="icon-heart"></i></a>
+											{% if user.is_authenticated %}
+												<a href="{% url 'favorites:favorite_add' prod.pk %}" class="btn-icon-wish">
+													<i class="icon-heart"></i>
+												</a>
+											{% else %}
+												<a href="{% url 'user:login' %} " class="btn-icon-wish"><i class="icon-heart" ></i></a>
+											{% endif %}
 										</div>
 										<h2 class="product-title">
 											<a href="{% url 'salon_shop:product_detail' prod.slug %}">{{prod.name}}</a>

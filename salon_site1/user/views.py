@@ -3,9 +3,6 @@ from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import redirect, render
 from django.urls import reverse
 from django.contrib.auth.models import User
-from django.shortcuts import HttpResponse
-
-from django.contrib.auth.decorators import login_required
 
 
 class LoginView(TemplateView):
@@ -26,9 +23,12 @@ class LoginView(TemplateView):
         return render(request, self.template_name, context)
 
 
-
 class ProfilePage(TemplateView):
     template_name = "registration/profile.html"
+
+
+class ProfileInfo(TemplateView):
+    template_name = 'registration/profile_info.html'
 
 
 class RegisterView(TemplateView):

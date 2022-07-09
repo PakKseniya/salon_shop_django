@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.admin',
     'favorites.apps.FavoritesConfig',
     'cart.apps.CartConfig',
-    'orders.apps.OrdersConfig',
+    'orders_new.apps.OrdersConfig',
     'contact.apps.ContactConfig',
 ]
 
@@ -66,7 +66,7 @@ ROOT_URLCONF = 'config_shop.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

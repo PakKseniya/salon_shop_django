@@ -12,16 +12,46 @@
 			</nav>
 
 			<div class="container">
-				<div class="row">
-					<div class="col-4"><h2>Мой профиль</h2>
-						<div class="col-4">
-							<h4>Имя пользователя:</h4><h5>{{ user.username }}</h5>
-							<h4>Имя:</h4><h5>{{ user.first_name }}</h5>
-							<h4>Фамилия:</h4><h5>{{ user.last_name }}</h5>
-							<h4>Email:</h4> <h5>{{ user.email }}</h5>
-						</div>
-					</div>
+				<div class="widget widget-dashboard">
+					<h3 class="widget-title">Личный кабинет {{ user.username }}</h3>
+						<ul class="list">
+							<li class="active">
+								<a href="{% url 'user:profile_info' %}">Данные пользователя</a>
+							</li>
+								<li>
+									<a href="#">История заказов</a>
+								</li>
+								<li>
+									<a href="{% url 'favorites:favorite_detail' %}">Избранные товары</a>
+								</li>
+						</ul>
 				</div>
+			</div>
+
+				{% if not user.is_staff %}
+				{% if orders %}
+				<div class="row">
+					<div class="col-4"><h2>Заказы пользователя</h2></div>
+					<table>
+                    <tbody>
+                        <tr>
+                            <th>Номер заказа</th><th>Кол-во позиций</th><th>Общая стоимость</th>
+                            <th>Дата создания</th><th>Статус</th>
+                        </tr>
+                        {% for order in orders %}
+                        <tr>
+                            <td><a href="/orders/{{ order.id }}/"> {{ order.id }}</a></td>
+                            <td>{{ order.quantity }}</td>
+                            <td>{{ order.get_cost }}</td>
+                            <td>{{ order.created }}</td>
+                            <td>{{ order.status }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% endif %}
+            {% endif %}
 			</div>
 </main>
 {% endblock content%}

@@ -1,0 +1,36 @@
+
+    {% if user.is_authenticated and favorite_list != None %}
+        {% for item in favorite_list %}
+            <div class="collapse show" id="order-cart-section" style="">
+                <table class="table table-mini-cart">
+                    <tbody>
+                        <tr>
+                            <td class="product-col">
+                                <figure class="product-image-container">
+                                    <a href="{% url 'salon_shop:product_detail' item.product.slug %}" class="product-image">
+                                        <img src="{{item.product.image.url}}" alt="product">
+                                    </a>
+                                </figure>
+                                <div>
+                                    <h2 class="product-title">
+                                        <a href="{% url 'salon_shop:product_detail' item.product.slug%}">{{item.product.name}}</a>
+                                    </h2>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="product-action-row">
+                            <td colspan="4" class="clearfix">
+                                <div class="float-center">
+                                    <a href="{% url 'favorites:favorite_remove' item.product.pk %}" >Удалить</a>
+                                </div><!-- End .float-right -->
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        {% endfor %}
+    {% else %}
+    <div>
+        <h4> Нет избранных товаров </h4>
+    </div>
+    {% endif %}

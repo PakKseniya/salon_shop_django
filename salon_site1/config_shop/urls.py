@@ -24,9 +24,9 @@ from salon_shop.views import pageNotFound
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('cart/', include('cart.urls', namespace='cart')),
-    path('orders/', include('orders.urls', namespace='orders')),
+    path('orders_new/', include('orders_new.urls', namespace='orders_new')),
     path('', include('salon_shop.urls', namespace='shop')),
-    # path('', include('favorites.urls', namespace='favorites')),
+    path('favorites/', include('favorites.urls', namespace='favorites')),
     path('contact/', include('contact.urls', namespace='contact')),
     path('user/', include('user.urls', namespace='user')),
 
