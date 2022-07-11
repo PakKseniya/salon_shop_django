@@ -1,9 +1,10 @@
 from django.core.validators import RegexValidator
 from django.db import models
 from salon_shop.models import Product
+from django.contrib.auth.models import User
 
 
-class OrderNew(models.Model):
+class Order(models.Model):
     email_validator = RegexValidator(
         regex=r"^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|"
               r"(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$")
@@ -12,7 +13,7 @@ class OrderNew(models.Model):
                                        message='Значение в поле "Телефон" должно '
                                                'состоять из 11 цифр от 0 до 9,'
                                                'где первая цифра - 7/+7 или 8')
-
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, verbose_name='Пользователь')
     first_name = models.CharField(max_length=150, verbose_name='Имя')
     last_name = models.CharField(max_length=150, verbose_name='Фамилия')
     email = models.EmailField(validators=[email_validator])
@@ -37,9 +38,8 @@ class OrderNew(models.Model):
         total_cost = sum(item.get_cost() for item in self.items.all())
         return total_cost
 
-
-class OrderNewItem(models.Model):
-    order = models.ForeignKey(OrderNew, related_name='items', on_delete=models.CASCADE, verbose_name='Заказ №')
+class OrderItem(models.Model):
+    order = models.ForeignKey(Order, related_name='items', on_delete=models.CASCADE, verbose_name='Заказ №')
     product = models.ForeignKey(Product, related_name='order_items', on_delete=models.PROTECT,
                                 verbose_name='ID продукта')
     price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name='Цена на момент заказа')

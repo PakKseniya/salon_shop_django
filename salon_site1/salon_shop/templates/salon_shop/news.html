@@ -11,7 +11,6 @@
 			</ol>
 		</nav>
 		{% for item in news %}
-
 		<div class="post-body">
 			<h2 class="post-title">
 				<font color="#e9846b">{{item.title}}</font>
@@ -33,12 +32,11 @@
 			</div><!-- End .post-meta -->
 		</div>
 		{% endfor %}
-
-							<div class="newsletter-banner appear-animate">
-                    			<div class="d-flex flex-wrap">
-                        			{% contact_form %}
-                   				</div>
-							</div>
+		<div class="newsletter-banner appear-animate">
+			<div class="d-flex flex-wrap">
+				{% contact_form %}
+			</div>
+		</div>
 	</div>
 </main>
 {% endblock content %}

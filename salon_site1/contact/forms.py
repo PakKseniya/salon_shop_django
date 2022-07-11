@@ -3,7 +3,9 @@ from .models import Contact
 
 
 class ContactForm(forms.ModelForm):
+
     """Форма подписки по email"""
+
     class Meta:
         model = Contact
         fields = ('email',)

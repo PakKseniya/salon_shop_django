@@ -6,6 +6,9 @@ from favorites.views import favorite_list
 
 
 def product_list(request, category_slug=None):
+
+    """Получение списка товаров по категории """
+
     category = None
     categories = Category.objects.all()
     products = Product.objects.filter(available=True)
@@ -23,6 +26,9 @@ def product_list(request, category_slug=None):
 
 
 def product_detail(request, slug):
+
+    """Получение детальной информации по товару"""
+
     product = get_object_or_404(Product,  slug=slug,  available=True)
     cart_product_form = CartAddProductForm()
     return render(request, 'salon_shop/product_detail.html', {'product': product,
@@ -30,19 +36,24 @@ def product_detail(request, slug):
 
 
 def pr(request):
+
+    """Получение списка товаров"""
+
     products = Product.objects.all()
     cart_product_form = CartAddProductForm()
     context = {
         'products': products,
         'title':'Продукция',
         'cart_product_form': cart_product_form,
-        'favorites_list': request.session.get('favorites')
     }
     return render(request, 'salon_shop/product_list.html', context=context)
 
 
 def about(request):
-    return render(request, "salon_shop/about.html", {'title':'О магазине'})
+
+    """информация о магазине"""
+
+    return render(request, "salon_shop/about.html")
 
 
 def base(request):
@@ -50,11 +61,15 @@ def base(request):
 
 
 def index(request):
+    """Вывод главной страницы"""
 
     return render(request, "salon_shop/index.html", {'title':'Главная страница'})
 
 
 def new_in(request):
+
+    """Вывод списка новостей"""
+
     news = News.objects.all()
     context = {
         'news': news,
@@ -62,10 +77,6 @@ def new_in(request):
 
     }
     return render(request, 'salon_shop/news.html', context=context)
-
-
-def show_post(request, post_id):
-    return HttpResponse(f'Отображение статьи= {post_id}')
 
 
 def salon_kr(request):

@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.admin',
     'favorites.apps.FavoritesConfig',
     'cart.apps.CartConfig',
-    'orders_new.apps.OrdersConfig',
+    'order.apps.OrderConfig',
     'contact.apps.ContactConfig',
 ]
 

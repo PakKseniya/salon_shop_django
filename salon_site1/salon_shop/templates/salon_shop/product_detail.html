@@ -1,47 +1,40 @@
 {% extends 'salon_shop/base.html' %}
 {% load static %}
-
 {% block content %}
 <nav aria-label="breadcrumb" class="breadcrumb-nav">
-				<div class="container">
-					<ol class="breadcrumb">
-						<li class="breadcrumb-item"><a href="/index"><i class="icon-home"></i></a></li>
-						<li class="breadcrumb-item active" aria-current="page">О товаре</li>
-					</ol>
-				</div><!-- End .container -->
+	<div class="container">
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item"><a href="/index"><i class="icon-home"></i></a></li>
+			<li class="breadcrumb-item active" aria-current="page">О товаре</li>
+		</ol>
+	</div><!-- End .container -->
 </nav>
 <div class="container">
 	<div class="product-single-container product-single-default">
 		<div class="row">
 			<div class="col-md-3 product-single-gallery">
-
 				<div class="prod-thumbnail owl-dots" id="carousel-custom-dots">
 					<div class="owl-dot active">
 						<img src="{{product.image.url }}">
 					</div>
 				</div>
 			</div><!-- End .product-single-gallery -->
-
 			<div class="col-md-7 product-single-details">
 				<h1 class="product-title">{{ product.name }}</h1>
-
 				<hr class="short-divider">
-
 				<div class="price-box">
 					<span class="product-price">{{product.price}}</span>
 				</div><!-- End .price-box -->
-
 				<div class="product-desc">
 					<p>
 						{{product.description}}
-
 					</p>
 				</div><!-- End .product-desc -->
 				<hr class="divider">
 				<div class="product-single-share">
 					<label class="sr-only">Share:</label>
-
-					<a href="#" class="add-wishlist" title="Добавить в избранное">Добавить в избранное</a>
+					<a href="{% url 'favorites:favorite_add' product.pk %}" class="add-wishlist"
+					   title="Добавить в избранное">Добавить в избранное</a>
 				</div><!-- End .product single-share -->
 				<hr class="divider">
 				<div class="product-action">
@@ -51,10 +44,8 @@
 							{% csrf_token %}
 							<input class="btn btn-dark add-cart icon-shopping-cart" type="submit" value="В корзину">
 						</form>
-
 					</div>
 				</div><!-- End .product-action -->
-
 			</div><!-- End .product-single-details -->
 		</div><!-- End .row -->
 	</div>

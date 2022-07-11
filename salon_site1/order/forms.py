@@ -1,12 +1,11 @@
 from django import forms
-from django import forms
-
-from .models import OrderNew
+from .models import Order
 
 
 class OrderCreateForm(forms.ModelForm):
+
     class Meta:
-        model = OrderNew
+        model = Order
         fields = ['first_name', 'last_name', 'email', 'telephone', 'address', 'postal_code', 'city']
 
 

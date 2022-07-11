@@ -1,0 +1,39 @@
+{% extends 'salon_shop/base.html' %}
+{% load static %}
+{% block content %}
+<main class="main">
+	<nav aria-label="breadcrumb" class="breadcrumb-nav">
+		<div class="container">
+			<ol class="breadcrumb">
+				<li class="breadcrumb-item"><a href="index/"><i class="icon-home"></i></a></li>
+				<li class="breadcrumb-item active" aria-current="page">Исторяи заказов</li>
+			</ol>
+		</div>
+	</nav>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8">
+				<div class="cart-table-container">
+					<table class="table table-cart">
+						<tbody>
+						{% for order in history_list %}
+							<tr >
+								<td>Номер заказа: {{order.pk}}</td>
+								<td>Адрес доставки: г.{{order.city}}, {{order.address}}, индекс {{order.postal_code}}</td>
+								<td>Дата заказа: {{order.created}}</td>
+								<td><a href="{% url 'order:list_order_item' order.pk %}">Посмотреть заказ</a></td>
+								{% if order.status == True %}
+									<td>Статус заказа: отправлен</td>
+								{% else %}
+									<td>Статус заказа: в рассмотрении </td>
+								{% endif %}
+							</tr>
+						{% endfor %}
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</main>
+{% endblock content%}

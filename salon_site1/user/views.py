@@ -9,6 +9,8 @@ class LoginView(TemplateView):
     template_name = "registration/login.html"
 
     def dispatch(self, request, *args, **kwargs):
+
+        """Аутентификация пользователя"""
         context = {}
         if request.method == 'POST':
             username = request.POST['username']
@@ -35,6 +37,9 @@ class RegisterView(TemplateView):
     template_name = "registration/register.html"
 
     def dispatch(self, request, *args, **kwargs):
+
+        """Регистрация пользователя"""
+
         if request.method == 'POST':
             username = request.POST.get('username')
             first_name = request.POST.get('first_name')
@@ -54,6 +59,9 @@ class LogoutView(TemplateView):
     template_name = "registration/logged_out.html"
 
     def dispatch(self, request, *args, **kwargs):
+
+        """Выход из личного кабинета"""
+
         logout(request)
         return render(request, self.template_name)
 

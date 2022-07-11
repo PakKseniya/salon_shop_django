@@ -1,7 +1,5 @@
 {% extends 'salon_shop/base.html' %}
 {% load static %}
-{% block title%} Корзина покупателя {% endblock title%}
-
 {% block content %}
 <main class="main">
     <nav aria-label="breadcrumb" class="breadcrumb-nav">
@@ -31,7 +29,6 @@
                 			{% with product=item.product %}
 					<tr class="product-row">
 						<td class="product-col">
-
 							<figure class="product-image-container">
 								<a href="{% url 'cart:detail' % }">
 									<img src="
@@ -40,7 +37,7 @@
                                     {% else %}
                                         {% static 'images/no_image.png' %}
                                     {% endif %}">
-                            </a>
+                            	</a>
 							</figure>
 							<h2 class="product-title">
 								<a>{{ product.name }}</a>
@@ -48,19 +45,15 @@
 						</td>
 						<td>{{ item.price }}</td>
 						<td>{{ item.quantity }}</td>
-
 						<td>{{ item.price }}</td>
 						<td class="num">{{ item.total_price }}</td>
                     </tr>
-
 					<tr class="product-action-row">
 						<td colspan="4" class="clearfix">
 							<div class="float-left">
-								<a href="#" class="btn-move">Move to Wishlist</a>
+								<a href="{% url 'favorites:favorite_add' product.pk %}" class="btn-move">Добавить в избранное</a>
 							</div><!-- End .float-left -->
-
 							<div class="float-right">
-
 								<a href="{% url 'cart:cart_remove' product.id %}" >Удалить</a>
 							</div><!-- End .float-right -->
 						</td>
@@ -74,20 +67,14 @@
 								<div class="float-left">
 									<a href="{% url 'salon_shop:product_list' %}" class="button light">Продолжить покупки</a>
 								</div><!-- End .float-left -->
-
 							</td>
 						</tr>
 					</tfoot>
 				</table>
 			</div><!-- End .cart-table-container -->
-
-
-					</div><!-- End .col-lg-8 -->
-
 			<div class="col-lg-4">
 				<div class="cart-summary">
 					<h3>Итого</h3>
-
 					<table class="table table-totals">
 						<tfoot>
 						<tr>
@@ -97,12 +84,12 @@
 						</tfoot>
 					</table>
 					<div class="checkout-methods">
-						<a href="{% url 'orders_new:order_create' %}" class="btn btn-block btn-sm btn-primary">Перейти к оформлению</a>
-
+						<a href="{% url 'order:order_create' %}" class="btn btn-block btn-sm btn-primary">Перейти к оформлению</a>
 					</div><!-- End .checkout-methods -->
 				</div><!-- End .cart-summary -->
 			</div><!-- End .col-lg-4 -->
 		</div><!-- End .row -->
+	</div>
 	</div>
 </main>
 {% endblock %}

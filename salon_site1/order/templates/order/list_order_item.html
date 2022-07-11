@@ -1,0 +1,45 @@
+{% extends 'salon_shop/base.html' %}
+{% load static %}
+{% block title%} Корзина покупателя {% endblock title%}
+
+{% block content %}
+<main class="main">
+    <nav aria-label="breadcrumb" class="breadcrumb-nav">
+        <div class="container">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/index/"><i class="icon-home"></i></a></li>
+                <li class="breadcrumb-item active" aria-current="page">Детали заказа</li>
+            </ol>
+        </div>
+    </nav>
+	<div class="container">
+		<div class="row" >
+			<div class="cart-table-container">
+				<table class="table table-cart">
+					<thead>
+						<tr>
+							<th class="product-col">Продукт</th>
+							<th class="price-col">Цена</th>
+							<th class="qty-col">Кол-во</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for item in list_prod_in_ord %}
+							<tr class="product-row">
+								<td class="product-col">
+									<h2 class="product-title">
+										<a>{{ item.name }}</a>
+									</h2>
+								</td>
+								<td>{{ item.coast }}</td>
+								<td>{{ item.quantity }}</td>
+
+							</tr>
+            			{% endfor %}
+					</tbody>
+				</table>
+			</div><!-- End .cart-table-container -->
+		</div><!-- End .row -->
+	</div>
+</main>
+{% endblock %}
