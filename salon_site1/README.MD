@@ -1,5 +1,6 @@
-<img src="https://github.com/PakKseniya/salon_shop_django/blob/main/salon_site1/readme/screen1.png" width="1100px">
 <h1 align="center">Интернет-магазин 'Салон красоты'</h1>
+<img src="https://github.com/PakKseniya/salon_shop_django/blob/main/salon_site1/readme/screen1.png" width="1100px">
+
 
 
 <h2>Список приложений</h2>
@@ -15,8 +16,8 @@
 - order - приложение создания и хранения списка заказов пользователя
 
 <h2>Другое</h2>
--readme - директория для хранения скринов интернет-магазина
--requirements.txt - зависимости в проекте
+- readme - директория для хранения скринов интернет-магазина
+- requirements.txt - зависимости в проекте
 
 <h2>Демонстрация</h2>
 
@@ -57,3 +58,38 @@
 
 <img src="https://github.com/PakKseniya/salon_shop_django/blob/main/salon_site1/readme/screen6.png">
 <img src="https://github.com/PakKseniya/salon_shop_django/blob/main/salon_site1/readme/screen7.png">
+
+
+<h2>Административная часть</h2>
+<h3>Для заполнения проекта тестовыми данными</h3> 
+- Логин: admin
+- Пароль: aaaddmin22!
+
+1. Главная страница админки
+
+<img src="https://github.com/PakKseniya/salon_shop_django/blob/main/salon_site1/readme/screen012.png">
+
+2. Заказы от пользователя
+
+<img src="https://github.com/PakKseniya/salon_shop_django/blob/main/salon_site1/readme/screen013.png">
+<img src="https://github.com/PakKseniya/salon_shop_django/blob/main/salon_site1/readme/screen014.png">
+
+3. Категории товаров с возможностью добавления новых
+
+<img src="https://github.com/PakKseniya/salon_shop_django/blob/main/salon_site1/readme/screen015.png">
+
+4. Добавление новостей в новостной блог
+
+<img src="https://github.com/PakKseniya/salon_shop_django/blob/main/salon_site1/readme/screen016.png">
+
+5. Добавление товаров 
+
+<img src="https://github.com/PakKseniya/salon_shop_django/blob/main/salon_site1/readme/screen017.png">
+
+6. Добавление слайдера на главную страницу
+
+<img src="https://github.com/PakKseniya/salon_shop_django/blob/main/salon_site1/readme/screen018.png">
+
+7. Пользователи и суперпользователи
+
+<img src="https://github.com/PakKseniya/salon_shop_django/blob/main/salon_site1/readme/screen019.png">
