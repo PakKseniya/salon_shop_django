@@ -1,4 +1,4 @@
-# <img src="https://github.com/PakKseniya/salon_shop_django/blob/main/salon_site1/readme/screen1.png" width="1100px">
+<img src="https://github.com/PakKseniya/salon_shop_django/blob/main/salon_site1/readme/screen1.png" width="1100px">
 <h1 align="center">Интернет-магазин 'Салон красоты'</h1>
 
 
@@ -18,6 +18,42 @@
 -readme - директория для хранения скринов интернет-магазина
 -requirements.txt - зависимости в проекте
 
-Главная страница интернет магазин, с выводом слайдера с акционными товарами и избранными товарами пользователя
+<h2>Демонстрация</h2>
+
+1. Главная страница интернет магазин, с выводом слайдера с акционными товарами и избранными товарами пользователя
 
 <img src="https://github.com/PakKseniya/salon_shop_django/blob/main/salon_site1/readme/screen011.png">
+
+2. Вывод всех продуктов на страницу
+
+<img src="https://github.com/PakKseniya/salon_shop_django/blob/main/salon_site1/readme/screen1.png">
+
+3. Новостной блог
+
+<img src="https://github.com/PakKseniya/salon_shop_django/blob/main/salon_site1/readme/screen2.png">
+
+4. Регистрация пользователя 
+
+<img src="https://github.com/PakKseniya/salon_shop_django/blob/main/salon_site1/readme/screen4.png">
+
+5. Аутентификация 
+
+<img src="https://github.com/PakKseniya/salon_shop_django/blob/main/salon_site1/readme/screen5.png">
+
+6. Личный кабинет пользователя 
+
+<img src="https://github.com/PakKseniya/salon_shop_django/blob/main/salon_site1/readme/screen3.png">
+
+7. История заказов пользователя и детальное представление
+
+<img src="https://github.com/PakKseniya/salon_shop_django/blob/main/salon_site1/readme/screen8.png">
+<img src="https://github.com/PakKseniya/salon_shop_django/blob/main/salon_site1/readme/screen9.png">
+
+8. Вывод избранных товаров
+
+<img src="https://github.com/PakKseniya/salon_shop_django/blob/main/salon_site1/readme/screen010.png">
+
+9. Представление корзины пользователя и оформления заказа
+
+<img src="https://github.com/PakKseniya/salon_shop_django/blob/main/salon_site1/readme/screen6.png">
+<img src="https://github.com/PakKseniya/salon_shop_django/blob/main/salon_site1/readme/screen7.png">
