@@ -33,50 +33,52 @@
 <header class="header mb-0">
     <div class="header-middle">
         <div class="container">
-            <div class="header-left">
-                <button class="mobile-menu-toggler mr-2" type="button">
-                    <i class="icon-menu"></i>
-                </button>
-                <a href="/index/" class="logo">
-                    <img src="{% static 'salon_shop/images/logo.png' %}" alt="Logo" width="300" height="150">
-                </a>
-            </div><!-- End .header-left -->
+            <div class="row">
+                <div class="header-left">
+                    <button class="mobile-menu-toggler mr-2" type="button">
+                        <i class="icon-menu"></i>
+                    </button>
+                    <a href="/index/" class="logo">
+                        <img src="{% static 'salon_shop/images/logo.png' %}" alt="Logo" width="300" height="150">
+                    </a>
+                </div><!-- End .header-left -->
 
-            <div class="header-right">
-                <div class="header-contact d-none d-lg-flex ml-5">
-                    <i class="icon-phone-2"></i>
-                    <h6>Позвони сейчас<a href="tel:#" class="font1 text-secondary">+89140000000</a></h6>
-                </div>
-                {% if user.is_authenticated %}
-                <div>
-                    <a href="{% url 'user:profile' %}" class="header-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
-                             class="bi bi-person-lines-fill" viewBox="0 0 16 16">
-                            <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zM11
-                            3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 0 0 1h4a.5.5
-                            0 0 0 0-1h-4zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2zm0 3a.5.5 0 0 0 0
-                            1h2a.5.5 0 0 0 0-1h-2z"/>
-                        </svg>
-                    </a>
-                </div>
-                <div class="logout">
-                    <a href="{% url 'user:logged_out' %} " class="header-icon "><i class="icon-user"  ></i></a>
-                </div>
-                <div>
-                    <a href="{% url 'favorites:favorite_detail' %}" class="header-icon" ><i class="icon-wishlist-2"></i></a>
-                </div>
-                {%else%}
-                <div class="logo">
-                    <a href="{% url 'user:login' %} " class="header-icon "><i class="icon-user"  ></i></a>
-                </div>
-                <div class="regist">
-                    <a href="{% url 'user:register' %}" class="header-icon "><i class="icon-user-2" ></i></a>
-                </div>
-                {% endif %}
-                <div class="dropdown cart-dropdown">
-                    <a href=/cart/ class="cart" >
-                        <i class="icon-shopping-cart"></i>
-                    </a>
+                <div class="header-right">
+                    <div class="header-contact d-none d-lg-flex ml-5">
+                        <i class="icon-phone-2"></i>
+                        <h6>Позвони сейчас<a href="tel:#" class="font1 text-secondary">+89140000000</a></h6>
+                    </div>
+                    {% if user.is_authenticated %}
+                    <div>
+                        <a href="{% url 'user:profile' %}" class="header-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                                 class="bi bi-person-lines-fill" viewBox="0 0 16 16">
+                                <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zM11
+                                3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 0 0 1h4a.5.5
+                                0 0 0 0-1h-4zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2zm0 3a.5.5 0 0 0 0
+                                1h2a.5.5 0 0 0 0-1h-2z"/>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="logout">
+                        <a href="{% url 'user:logged_out' %} " class="header-icon "><i class="icon-user"  ></i></a>
+                    </div>
+                    <div>
+                        <a href="{% url 'favorites:favorite_detail' %}" class="header-icon" ><i class="icon-wishlist-2"></i></a>
+                    </div>
+                    {%else%}
+                    <div class="logo">
+                        <a href="{% url 'user:login' %} " class="header-icon "><i class="icon-user"  ></i></a>
+                    </div>
+                    <div class="regist">
+                        <a href="{% url 'user:register' %}" class="header-icon "><i class="icon-user-2" ></i></a>
+                    </div>
+                    {% endif %}
+                    <div class="dropdown cart-dropdown">
+                        <a href=/cart/ class="cart" >
+                            <i class="icon-shopping-cart"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>

@@ -4,13 +4,25 @@
 {% block content %}
 <main class="main">
     {% slider_block %}
-    <script type="text/javascript">
-        $( document ).ready(function() {
-            $( "#favorite_list" ).load("favorite_list/");
-        });
-    </script>
-    <div id="favorite_list">
+    <div class="container">
+         <div class="row">
+             <div class="col">
+                 <div class="col-sm-11">
+					<div class="product-default inner-quickview inner-icon">
+                        <h4>Ваши избранные товары</h4>
+                            <figure>
+                                <script type="text/javascript">
+                                    $( document ).ready(function() {
+                                        $( "#favorite_list" ).load("favorite_list/");
+                                    });
+                                </script>
+                                    <div id="favorite_list">
 
+                                    </div>
+                            </figure>
+                    </div>
+             </div>
+         </div>
     </div>
 </main><!-- End .main -->
 {% endblock content %}
