@@ -38,6 +38,7 @@ class Order(models.Model):
         total_cost = sum(item.get_cost() for item in self.items.all())
         return total_cost
 
+
 class OrderItem(models.Model):
     order = models.ForeignKey(Order, related_name='items', on_delete=models.CASCADE, verbose_name='Заказ №')
     product = models.ForeignKey(Product, related_name='order_items', on_delete=models.PROTECT,

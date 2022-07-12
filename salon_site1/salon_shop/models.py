@@ -15,12 +15,6 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
-    # def save(self, *args, **kwargs):
-    #     """Для автоматической генерации слагов"""
-    #     if not self.slug:
-    #         self.slug = slugify(self.name)
-    #     super(Category, self).save(*args, **kwargs)
-
     def get_absolute_url(self):
         return reverse('salon_shop:product_list_by_category', args=[self.slug])
 
