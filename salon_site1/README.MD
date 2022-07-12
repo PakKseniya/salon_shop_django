@@ -1,3 +1,3 @@
-# <img  alt="shop-django" src="https://github.com/PakKseniya/salon_krasoti_TelegramBot/blob/master/Screenshots/Телеграм%20-бот%20Салона%20красоты.png" width="1100px"/>
-<h1 align="center">Интернет-магазин 'Салон красоты'</h1>
+# <img  alt="shop-django" src="https://github.com/PakKseniya/salon_shop_django/tree/main/salon_site1/readme/screen1.img" width="1100px"/>
+<h1 align="center">Интернет-магазин 'Сал*он красоты'</h1>
 
